@@ -1,7 +1,7 @@
 # Answers to Exercise A
 
 ### Part 1
-
+### Test
 ```shell
 $ cargo new variables
 ```
