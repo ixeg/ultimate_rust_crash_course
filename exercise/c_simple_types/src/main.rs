@@ -1,5 +1,10 @@
 // Silence some warnings so they don't distract from the exercise.
 #![allow(dead_code, unused_variables)]
+use ding_machine::ding;
+use ding_machine::on_off;
+use ding_machine::print_array;
+use ding_machine::print_difference;
+use ding_machine::print_distance;
 
 fn main() {
     let coords: (f32, f32) = (6.3, 15.0);
@@ -32,6 +37,7 @@ fn main() {
     // `cargo run` will produce the additional output "Lights are on!" I'll get you started:
     //
     //on_off(mess.2 ...);
+    on_off(mess.2[1].0);
 
     // 5.  What a mess -- functions in a binary! Let's get organized!
     //
@@ -47,36 +53,5 @@ fn main() {
     // output. Then go refactor the print_distance() function according to the
     // instructions in the comments inside that function.
 
-    // print_distance(coords);
-}
-
-fn print_difference(x: f32, y: f32) {
-    println!("Difference between {} and {} is {}", x, y, (x - y).abs());
-}
-
-fn print_array(a: [f32; 2]) {
-    println!("The coordinates are ({}, {})", a[0], a[1]);
-}
-
-fn ding(x: i32) {
-    if x == 13 {
-        println!("Ding, you found 13!");
-    }
-}
-
-fn on_off(val: bool) {
-    if val {
-        println!("Lights are on!");
-    }
-}
-
-fn print_distance(z: (f32, f32)) {
-    // Using z.0 and z.1 is not nearly as nice as using x and y.  Lucky for
-    // us, Rust supports destructuring function arguments.  Try replacing "z" in
-    // the parameter list above with "(x, y)" and then adjust the function
-    // body to use x and y.
-    println!(
-        "Distance to the origin is {}",
-        (z.0.powf(2.0) + z.1.powf(2.0)).sqrt()
-    );
+    print_distance(coords);
 }
